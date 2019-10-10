@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { ConnectedRouter } from 'connected-react-router';
+import configureStore, { history } from './redux/store';
+const store = configureStore(/* provide initial state if any */);
+
 import App from './containers/App';
-import tasksReducer from './redux/reducers/tasks';
 
-const store = createStore(tasksReducer);
-const root = document.getElementById('root');
-
-if (root) {
-  ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    root,
-  );
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+)
