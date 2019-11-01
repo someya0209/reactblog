@@ -1,14 +1,26 @@
 import React from 'react'
 
 class PostIndex extends React.Component {
-  render(){
-    return(
-      <div>
-        <h1>About</h1>
-        <h2>I am Test</h2>
-      </div>
-    )
-  }
+    constructor(props) {
+        super(props);
+        console.log(props);
+    }
+    render(){
+        return(
+            <div>
+                <h1>Blog posts</h1>
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Created</th>
+                    </tr>
+
+                    
+                </table>
+            </div>
+        )
+    }
 }
 
 

@@ -5,21 +5,21 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 
 class Navbar extends React.Component {
-  render(){
-    return(
-        <AppBar position="static">
-        <Toolbar>
-        <Typography type="title" color="inherit">
-        Typo
-        </Typography>
-        <div>
-            <Link to="/Post/index">Home</Link>
-            <Link to="/Test">About</Link>
-        </div>
-        </Toolbar>
-        </AppBar>
-    )
-  }
+    render(){
+        return(
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography type="title" color="inherit">
+                        Blog
+                    </Typography>
+                    <div>
+                        <Link to="/Post/index">Post</Link>
+                        <Link to="/Test">Test</Link>
+                    </div>
+                </Toolbar>
+            </AppBar>
+        )
+    }
 }
 
 export default Navbar;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Test from '../../components/reduxtest/test';
-import { inputTask, addTask } from '../../redux/actions/tasks';
+import { inputTask, addTask } from '../../redux/actions/reduxtest/tasks';
 
 const mapStateToProps = state => {
     state = state.ReduxtestReducer;

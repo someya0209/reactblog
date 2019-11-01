@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import configureStore, { history } from './redux/store';
-const store = configureStore(/* provide initial state if any */);
+import store, { history } from './redux/store';
 
 import App from './containers/App';
 
