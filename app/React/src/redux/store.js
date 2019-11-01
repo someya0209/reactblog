@@ -3,7 +3,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'connected-react-router'
 import createRootReducer from './reducers'
 import createSagaMiddleware from 'redux-saga'
-import mySagas from './sagas'
+import rootSagas from './sagas'
 
 // Saga ミドルウェアを作成する
 const sagaMiddleware = createSagaMiddleware()
@@ -22,9 +22,8 @@ function configureStore(preloadedState) {
             ),
         ),
     )
-
+    sagaMiddleware.run(rootSagas);
     return store
 }
 var store = configureStore();
 export default store;
-sagaMiddleware.run(mySagas);

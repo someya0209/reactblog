@@ -13,7 +13,7 @@ class Navbar extends React.Component {
                         Blog
                     </Typography>
                     <div>
-                        <Link to="/Post/index">Post</Link>
+                        <Link to="/posts/index">Post</Link>
                         <Link to="/Test">Test</Link>
                     </div>
                 </Toolbar>

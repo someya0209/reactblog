@@ -3,6 +3,8 @@ import React from 'react'
 class PostIndex extends React.Component {
     constructor(props) {
         super(props);
+        const { fetchRequest } = props;
+        fetchRequest();
         console.log(props);
     }
     render(){
@@ -16,7 +18,7 @@ class PostIndex extends React.Component {
                         <th>Created</th>
                     </tr>
 
-                    
+
                 </table>
             </div>
         )
