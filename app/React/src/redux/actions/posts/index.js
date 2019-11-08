@@ -4,16 +4,9 @@ export const postIndexFetchRequest =() => ({
         type: 'POST_INDEX_FETCH_REQUEST'
 });
 
-export const inputTask =(task) => ({
-        type: 'INPUT_TASK',
+export const savePostIndexData = (json) => ({
+        type: 'SAVE_POST_INDEX_DATA',
         payload: {
-                task
-        }
-});
-
-export const addTask =(task) => ({
-        type: 'ADD_TASK',
-        payload: {
-                task
+                json: json,
         }
 });

@@ -1,10 +1,10 @@
-import { takeLatest, call } from 'redux-saga/effects'
-import { POST_INDEX_FETCH_REQUEST } from '../../actions/posts/index'
+import { takeLatest, call, put } from 'redux-saga/effects'
+import { POST_INDEX_FETCH_REQUEST , savePostIndexData } from '../../actions/posts/index'
 import fetch from 'cross-fetch';
 
 function fetchPostIndex(payload){
     const url = '/posts/get_posts';
-    console.log(payload);
+    console.log("payload"+payload);
     return fetch(url)
     .then(res => {
         if (res.status >= 400) {
@@ -12,8 +12,9 @@ function fetchPostIndex(payload){
         }
         return res.json();
     })
-    .then(user => {
-        console.log(user);
+    .then(json => {
+        console.log(json);
+        return json;
     })
     .catch(err => {
         console.error(err);
@@ -22,7 +23,8 @@ function fetchPostIndex(payload){
 function* requestPostIndex(action){
     let { payload } = action;
     const json = yield call(fetchPostIndex, payload);
-    console.log(json);
+    yield put(savePostIndexData(json));
+    //console.log(json);
     if(json) {
         //yield put(loginSuccess());
     } else {

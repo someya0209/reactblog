@@ -11,12 +11,6 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
     return {
-            addTask(task) {
-                    dispatch(addTask(task));
-                    },
-            inputTask(task) {
-                    dispatch(inputTask(task));
-            },
             fetchRequest() {
                     dispatch(postIndexFetchRequest());
             },
