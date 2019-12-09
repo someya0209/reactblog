@@ -14,6 +14,7 @@ class Navbar extends React.Component {
                     </Typography>
                     <div>
                         <Link to="/posts/index">Post</Link>
+                        <Link to="/posts/add">New Post</Link>
                         <Link to="/Test">Test</Link>
                     </div>
                 </Toolbar>

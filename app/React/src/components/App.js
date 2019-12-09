@@ -3,6 +3,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom'; // react-router v4/v5
 
 import PostIndex from '../containers/posts/index';
+import PostAdd from '../containers/posts/add';
 import Test from '../containers/reduxtest/index';
 import Navbar from './navbar';
 
@@ -12,6 +13,7 @@ export default function App() {
                 <Navbar />
                 <Switch>
                     <Route exact path='/posts/index' component={ () => <PostIndex/> }/>
+                    <Route exact path='/posts/add' component={ () => <PostAdd/> }/>
                     <Route path='/Test' component={ () => <Test/> }/>
                 </Switch>
             </div>

@@ -28,8 +28,13 @@ module.exports = {
                 "@babel/preset-env",
                 // React の JSX を解釈
                 "@babel/react"
-              ]
+              ],
+              plugins : [
+		//allow関数を使うためのプラグイン
+		"@babel/plugin-proposal-class-properties"
+	      ]
             }
+            
           }
         ]
       }
