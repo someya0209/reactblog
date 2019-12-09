@@ -38,4 +38,22 @@ class PostsController extends AppController {
         echo json_encode($retVal);
         exit;
     }
+    public function delete_post() {
+        //($this->request->is('post'));
+        //debug($this->request->data);
+        $retVal = [
+            'status' => false,
+        ];
+        $this->Post->delete($this->request->data['id']);
+
+        echo json_encode($retVal);
+        exit;
+    }
+    public function edit_post() {
+        $this->autoRender = false;
+        $posts = $this->Post->find('all');
+
+        echo json_encode($posts);
+        exit;
+    }
 }

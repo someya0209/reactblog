@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostIndex from '../../components/posts/index';
-import { postIndexFetchRequest, inputTask, addTask} from '../../redux/actions/posts/index';
+import { postIndexFetchRequest, postIndexDelete, inputTask, addTask} from '../../redux/actions/posts/index';
 
 const mapStateToProps = state => {
     state = state.PostIndexReducer;
@@ -12,8 +12,11 @@ const mapStateToProps = state => {
 function mapDispatchToProps(dispatch) {
     return {
             fetchRequest() {
-                    dispatch(postIndexFetchRequest());
+                dispatch(postIndexFetchRequest());
             },
+            postDelete(id) {
+                dispatch(postIndexDelete(id));
+            }
     };
 }
 

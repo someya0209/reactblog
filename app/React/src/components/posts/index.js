@@ -3,16 +3,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class PostIndex extends React.Component {
     constructor(props) {
         super(props);
-        const { fetchRequest } = props;
+        const { fetchRequest, postDelete } = props;
         fetchRequest();
         console.log(props);
     }
+    deleteHandleClick = (event, id) => {
+        this.props.postDelete(id);
+    };
     render(){
-        const { posts } = this.props;
+        const { posts, postDelete } = this.props;
         return(
             <div>
                 <Typography variant="h5" component="h1">
@@ -33,6 +37,17 @@ class PostIndex extends React.Component {
                                         <Typography color="textSecondary">
                                             {post.Post.created}
                                         </Typography>
+                                        <Button
+                                            color="primary"
+                                        >
+                                            編集
+                                        </Button>
+                                        <Button
+                                            color="primary"
+                                            onClick={() => postDelete(post.Post.id)}
+                                        >
+                                            削除
+                                        </Button>
                                     </CardContent>
                                 </Card>
                             );

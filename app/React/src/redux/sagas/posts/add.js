@@ -1,22 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { POST_ADD_FETCH_REQUEST , successPostAddData } from '../../actions/posts/add'
 import fetch from 'cross-fetch';
-function createFormData(data) {
-  const form = new FormData();
+import { createFormData } from '../../../helpers.js';
 
-  Object.keys(data).forEach(key => {
-    const value = data[key];
-    if (Array.isArray(value)) {
-      value.forEach(entry => {
-        form.append(key + '[]', entry);
-      });
-    } else {
-      form.append(key, value);
-    }
-  });
-
-  return form;
-}
 function fetchPostAdd(payload){
     const url = '/posts/add_posts';
     const data = payload.values;
