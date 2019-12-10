@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import PostIndex from '../../components/posts/index';
-import { postIndexFetchRequest, postIndexDelete, inputTask, addTask} from '../../redux/actions/posts/index';
+import {
+    postIndexFetchRequest,
+    postIndexDelete,
+    postSetSuccessDialogOpen,
+    postSetCheckDialogOpen
+} from '../../redux/actions/posts/index';
 
 const mapStateToProps = state => {
     state = state.PostIndexReducer;
@@ -16,7 +21,13 @@ function mapDispatchToProps(dispatch) {
             },
             postDelete(id) {
                 dispatch(postIndexDelete(id));
-            }
+            },
+            setSuccessDialogOpen(flag){
+                dispatch(postSetSuccessDialogOpen(flag));
+            },
+            setCheckDialogOpen(flag){
+                dispatch(postSetCheckDialogOpen(flag));
+            },
     };
 }
 

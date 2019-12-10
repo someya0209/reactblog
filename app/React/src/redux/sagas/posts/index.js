@@ -1,5 +1,10 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { POST_INDEX_FETCH_REQUEST, DELETE_POST_INDEX_DATA, savePostIndexData } from '../../actions/posts/index'
+import {
+    POST_INDEX_FETCH_REQUEST,
+    DELETE_POST_INDEX_DATA,
+    savePostIndexData,
+    postSetSuccessDialogOpen
+} from '../../actions/posts/index'
 import fetch from 'cross-fetch';
 import { createFormData } from '../../../helpers.js';
 
@@ -60,9 +65,9 @@ function fetchPostDelete(payload){//改良の余地あり
 function* requestPostDelete(action){
     let { payload } = action;
     const json = yield call(fetchPostDelete, payload);
-    //console.log(json);
-    if(json) {
-        //yield put(loginSuccess());
+    console.log(json);
+    if(json['status']) {
+        yield put(postSetSuccessDialogOpen(true));
     } else {
         //yield put(loginFailure(payload));
     }
