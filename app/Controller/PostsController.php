@@ -51,6 +51,23 @@ class PostsController extends AppController {
         exit;
     }
 
+    public function search_post() {
+        $this->autoRender = false;
+        $retVal = [
+            'status' => false,
+        ];
+        $id = $this->request->data['id'];
+        if(!$this->Post->exists((int)$id)){
+            echo json_encode($retVal);
+            exit;
+        }else {
+            $options = array('conditions' => array('Post.'.$this->Post->primaryKey => $id));
+            $retVal['data'] = $this->Post->find('first', $options);
+            echo json_encode($retVal);
+            exit;
+        }
+    }
+
     public function edit_post() {
         $this->autoRender = false;
         $posts = $this->Post->find('all');

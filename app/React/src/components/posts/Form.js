@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import Button from '@material-ui/core/Button';
 
 let Form = props => {
-  const { handleSubmit } = props
+  const { handleSubmit} = props
   return (
       <form onSubmit={handleSubmit}>
         <label>Title</label>
@@ -39,7 +39,7 @@ let Form = props => {
 
 Form = reduxForm({
   // a unique name for the form
-  form: 'contactForm'
+  form: 'AddForm'
 })(Form)
 
 export default Form

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -59,11 +60,7 @@ class PostIndex extends React.Component {
                                         <Typography color="textSecondary">
                                             {post.Post.created}
                                         </Typography>
-                                        <Button
-                                            color="primary"
-                                        >
-                                            編集
-                                        </Button>
+                                        <Link to={"/posts/edit/"+post.Post.id}>編集</Link>
                                         <Button
                                             color="primary"
                                             onClick={() => postDelete(post.Post.id)}

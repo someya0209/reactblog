@@ -6,6 +6,7 @@ import AppReducer from './App'
 import ReduxtestReducer from './reduxtest/index';
 import PostIndexReducer from './posts/index';
 import PostAddReducer from './posts/add'
+import PostEditReducer from './posts/edit'
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
@@ -13,6 +14,7 @@ const createRootReducer = (history) => combineReducers({
   //posts
   PostIndexReducer,
   PostAddReducer,
+  PostEditReducer,
   //reduxtest
   ReduxtestReducer,
 })
